@@ -57,35 +57,40 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero">
+      <!-- Painted background: assets/hero/palace-lake.jpg -->
+      <img class="hero__bg" src="assets/hero/palace-lake.jpg" alt="" />
+
+      <!-- Gold scalloped arch lines (left side drawn once, mirrored for the right) -->
+      <svg class="hero__frame" viewBox="0 0 941 1672" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <g id="frameSide" fill="none" stroke="#c9a26b" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke">
+            <path vector-effect="non-scaling-stroke" d="M196,22 C214,8 236,24 222,40 C212,52 194,44 196,30
+                     M196,30 C160,44 124,84 114,146
+                     C58,176 42,264 110,322
+                     C54,354 38,452 106,508
+                     C50,542 40,642 102,694
+                     C60,734 52,820 96,884" />
+            <circle cx="132" cy="146" r="7" fill="#c9a26b" stroke="none" /><circle cx="128" cy="322" r="7" fill="#c9a26b" stroke="none" />
+            <circle cx="124" cy="508" r="7" fill="#c9a26b" stroke="none" /><circle cx="120" cy="694" r="7" fill="#c9a26b" stroke="none" />
+            <circle cx="96" cy="896" r="9" fill="#c9a26b" stroke="none" />
+          </g>
+        </defs>
+        <use href="#frameSide" />
+        <use href="#frameSide" transform="translate(941,0) scale(-1,1)" />
+      </svg>
+
       <div class="flowers flowers--tr" id="heroFlowers"></div>
 
-      <div class="arch">
-        <svg class="arch__frame" viewBox="0 0 400 520" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M22,520 L22,215 C22,140 110,85 200,26 C290,85 378,140 378,215 L378,520" />
-          <path d="M34,520 L34,220 C34,152 118,100 200,42 C282,100 366,152 366,220 L366,520" class="thin" />
-        </svg>
-
-        <div class="arch__inner">
-          <p class="mantra">॥ श्री गणेशाय नमः ॥</p>
-          <div class="kalash" aria-hidden="true">
-            <svg viewBox="0 0 60 60"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-              <path d="M18 26 C10 34 12 50 30 52 C48 50 50 34 42 26 Z"/>
-              <path d="M20 26 H40 M24 22 H36 V26"/>
-              <path d="M30 22 C26 14 20 12 16 14 M30 22 C34 14 40 12 44 14 M30 22 V10"/>
-              <circle cx="30" cy="8" r="3"/>
-              <path d="M22 38 H38"/>
-            </g></svg>
-          </div>
-          <h1 class="hero__names">
-            <span>Shubhra</span>
-            <span class="amp">&amp;</span>
-            <span>Henil</span>
-          </h1>
-          <p class="hero__date">25 · 11 · 2026</p>
-        </div>
+      <div class="hero__content">
+        <img class="ganesha" src="assets/hero/ganesha.png" alt="Lord Ganesha" />
+        <p class="mantra">॥ श्री गणेशाय नमः ॥</p>
+        <h1 class="hero__names">
+          <span>Shubhra</span>
+          <span class="amp">&amp;</span>
+          <span>Henil</span>
+        </h1>
+        <p class="hero__date">25 · 11 · 2026</p>
       </div>
-
-      <svg class="palace" id="palace" viewBox="0 0 480 210" aria-hidden="true"></svg>
     </section>
 
     <!-- ============ CEREMONY INFO ============ -->
