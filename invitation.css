@@ -216,7 +216,14 @@
   transition: transform .5s cubic-bezier(.2,.8,.2,1), opacity .5s, filter .5s;
   cursor: pointer;
 }
-.gallery__card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* whole photo shown (no cropping); a blurred copy fills the empty space */
+.gallery__card::before {
+  content: "";
+  position: absolute; inset: -20px;
+  background: var(--bg) center / cover no-repeat;
+  filter: blur(14px) brightness(.85);
+}
+.gallery__card img { position: relative; width: 100%; height: 100%; object-fit: contain; display: block; }
 .gallery__card.placeholder {
   display: grid; place-items: center;
   background: linear-gradient(160deg, #f3d4bf, #e7b9a2);

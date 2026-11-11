@@ -9,7 +9,7 @@ const EVENTS = [
   { name: "Mehndi",     day: "Tuesday",   date: 24, time: "9:00 AM"  },
   { name: "Sangeet",    day: "Tuesday",   date: 24, time: "6:30 PM"  },
   { name: "Subh Vivah", day: "Wednesday", date: 25, time: "6:00 PM"  },
-  { name: "Reception",  day: "Wednesday", date: 25, time: "7:00 PM"  },
+  { name: "Reception",  day: "Thursday",  date: 26, time: "7:00 PM"  },
 ];
 
 const SCHEDULE = [
@@ -21,8 +21,8 @@ const SCHEDULE = [
   { time: "2:00 AM",  what: "Vidaai" },
 ];
 
-// Put your 5 photos here (any of .jpg / .jpeg / .png / .webp — just match the names)
-const GALLERY = Array.from({ length: 5 }, (_, i) => `assets/gallery/${i + 1}.jpg`);
+// Put your 14 photos here (any of .jpg / .jpeg / .png / .webp — just match the names)
+const GALLERY = Array.from({ length: 14 }, (_, i) => `assets/gallery/${i + 1}.jpg`);
 
 // Countdown target: Subh Vivah, 25 Nov 2026, 6:00 PM IST
 const WEDDING = new Date("2026-11-25T18:00:00+05:30");
@@ -143,7 +143,13 @@ document.getElementById("footFlowers").innerHTML = buildCorner(23);
     card.className = "gallery__card placeholder";
     card.innerHTML = `<div>Photo ${i + 1}<small>coming soon</small></div>`;
     const img = new Image();
-    img.onload = () => { card.className = "gallery__card"; card.innerHTML = ""; card.appendChild(img); loaded[i] = true; };
+    img.onload = () => {
+      card.className = "gallery__card";
+      card.innerHTML = "";
+      card.style.setProperty("--bg", `url("${src}")`); // blurred fill behind the photo
+      card.appendChild(img);
+      loaded[i] = true;
+    };
     img.alt = `Shubhra & Henil – photo ${i + 1}`;
     img.src = src;
     card.addEventListener("click", () => (i === active ? openLightbox(i) : go(i)));
@@ -248,7 +254,7 @@ document.getElementById("footFlowers").innerHTML = buildCorner(23);
     action: "TEMPLATE",
     text: "Shubhra & Henil's Wedding",
     dates: "20261125T123000Z/20261125T203000Z",
-    details: "Subh Vivah 6:00 PM · Reception 7:00 PM · Pheras 10:30 PM",
+    details: "Subh Vivah 25 Nov, 6:00 PM · Pheras 10:30 PM · Reception 26 Nov, 7:00 PM",
     location: "Shri Sai Kripa Vatika, Sharda Colony, near Dungarpur Link Road, Banswara, Rajasthan 327001",
     ctz: "Asia/Kolkata",
   });
