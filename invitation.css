@@ -1,0 +1,383 @@
+/* Everything for the inside of the card is scoped to .invite-wrap
+   so it doesn't change the cover's look. */
+.invite-wrap {
+  font-family: var(--serif);
+  color: var(--maroon);
+  --paper: #f7e3cd;
+  --paper-light: #fbefe1;
+  --maroon: #640e1b;
+  --gold: #ab7a45;
+  --gold-soft: #d2b086;
+  --script: "The Nautigal", "Alex Brush", cursive;
+  --serif: "Libre Baskerville", "Times New Roman", serif;
+  --garamond: "EB Garamond", Georgia, serif;
+}
+
+.page {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto;
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(255,250,240,.7), transparent 60%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0.55  0 0 0 0 0.4  0 0 0 0 0.25  0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  box-shadow: 0 0 60px rgba(60,10,15,.35);
+  overflow: hidden;
+  animation: pageIn 1s ease both;
+}
+@keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---------- Flowers ---------- */
+.page .flowers { position: absolute; pointer-events: none; z-index: 3; max-width: none; }
+.flowers svg { display: block; width: 100%; height: auto; }
+.flowers--tr { top: 0; right: 0; width: 48%; }
+.flowers--tr svg { transform: scaleX(-1); }
+.flowers--bl { bottom: 0; left: 0; width: 40%; }
+.flowers--bl svg { transform: scaleY(-1); }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  padding: 36px 20px 0;
+}
+
+.arch {
+  position: relative;
+  width: 86%;
+  margin: 0 auto;
+  aspect-ratio: 400 / 520;
+}
+.arch__frame {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+}
+.arch__frame path {
+  fill: rgba(255,248,238,.55);
+  stroke: var(--gold-soft);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+.arch__frame path.thin { fill: none; stroke-width: 1; opacity: .8; }
+
+.arch__inner {
+  position: absolute;
+  inset: 13% 10% 22%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.mantra {
+  font-family: "Tiro Devanagari Hindi", serif;
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: .5px;
+}
+.kalash { color: var(--gold); width: 46px; margin: 10px 0 6px; animation: float 4s ease-in-out infinite; }
+@keyframes float { 50% { transform: translateY(-4px); } }
+
+.hero__names {
+  font-family: var(--script);
+  font-weight: 400;
+  font-size: clamp(42px, 13vw, 62px);
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero__names .amp { font-family: "Alex Brush", cursive; font-size: .6em; margin: 4px 0; color: var(--gold); }
+.hero__date {
+  margin-top: 16px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: var(--gold);
+  font-size: 15px;
+}
+
+.palace {
+  display: block;
+  width: calc(100% + 40px);
+  margin: -26% -20px 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- Generic section ---------- */
+.section {
+  position: relative;
+  padding: 40px 28px;
+  text-align: center;
+}
+
+.title {
+  font-family: "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.small-title {
+  font-family: "Times New Roman", serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 15px;
+  margin: 30px 0 12px;
+}
+
+.ornament {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  color: var(--gold-soft);
+}
+.ornament span { height: 1px; width: 90px; background: linear-gradient(90deg, transparent, var(--gold-soft)); }
+.ornament span:last-child { transform: scaleX(-1); }
+.ornament i { font-style: normal; font-size: 14px; }
+
+/* ---------- Families ---------- */
+.families {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  align-items: start;
+}
+.families__rule { width: 1px; height: 70px; align-self: center; background: var(--gold); opacity: .6; }
+.family { display: flex; flex-direction: column; gap: 3px; }
+.family__surname { color: var(--gold); font-size: 13px; margin-bottom: 4px; }
+.family__name { font-weight: 700; font-size: 13px; line-height: 1.4; }
+.family__place { color: var(--gold); font-family: "Roboto", sans-serif; font-size: 11px; margin-top: 4px; line-height: 1.4; }
+
+/* ---------- Message & couple ---------- */
+.message {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.message strong {
+  display: block;
+  color: var(--maroon);
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.couple { margin-top: 26px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.couple__name { font-family: var(--garamond); font-weight: 400; font-size: 43px; line-height: 1.1; }
+.couple__role {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .25em;
+  font-size: 12px;
+}
+.couple__amp { font-family: var(--garamond); font-size: 30px; }
+
+/* ---------- Events ---------- */
+.events { display: flex; flex-direction: column; gap: 34px; }
+.event { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.event__name { color: var(--gold); font-size: 17px; letter-spacing: 1px; }
+.event__at { color: var(--gold); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+.dateline {
+  display: flex; align-items: center; justify-content: center; gap: 18px;
+  text-transform: uppercase;
+}
+.dateline span { font-size: 12px; letter-spacing: 1px; min-width: 84px; }
+.dateline span:first-child { text-align: right; }
+.dateline span:last-child { text-align: left; }
+.dateline .bar { min-width: 0; width: 1px; height: 26px; background: var(--maroon); opacity: .6; }
+.dateline b { font-weight: 400; font-size: 32px; }
+.year { font-size: 18px; }
+.event + .event { position: relative; }
+.event + .event::before {
+  content: "";
+  display: block;
+  width: 60px; height: 1px;
+  background: var(--gold-soft);
+  margin: -17px auto 17px;
+  opacity: .7;
+}
+
+/* ---------- Gallery ---------- */
+.gallery { position: relative; height: 340px; margin: 10px -28px 0; touch-action: pan-y; }
+.gallery__stage { position: absolute; inset: 0; perspective: 1000px; }
+.gallery__card {
+  position: absolute;
+  top: 10px; left: 50%;
+  width: 200px; height: 290px;
+  margin-left: -100px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--paper-light);
+  box-shadow: 0 14px 30px rgba(80,30,20,.28);
+  border: 5px solid #fffaf3;
+  transition: transform .5s cubic-bezier(.2,.8,.2,1), opacity .5s, filter .5s;
+  cursor: pointer;
+}
+.gallery__card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery__card.placeholder {
+  display: grid; place-items: center;
+  background: linear-gradient(160deg, #f3d4bf, #e7b9a2);
+  color: var(--maroon);
+  font-family: var(--garamond);
+  font-size: 18px;
+}
+.gallery__card.placeholder small { display: block; font-size: 12px; color: var(--gold); margin-top: 4px; }
+.gallery__nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 38px; height: 38px; border-radius: 50%;
+  border: none; cursor: pointer;
+  background: rgba(255,250,243,.9); color: var(--maroon);
+  font-size: 24px; line-height: 1;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  z-index: 50;
+}
+.gallery__nav--prev { left: 12px; }
+.gallery__nav--next { right: 12px; }
+.gallery__count { margin-top: 8px; color: var(--gold); font-size: 13px; letter-spacing: 1px; }
+
+/* ---------- Wedding / countdown ---------- */
+.sub { color: var(--gold); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+.big-time { font-size: 22px; margin: 10px 0 12px; }
+
+.countdown { display: flex; justify-content: center; gap: 10px; }
+.countdown div {
+  width: 70px; padding: 12px 0 10px;
+  border: 1px solid var(--gold-soft);
+  border-radius: 10px;
+  background: rgba(255,250,243,.55);
+}
+.countdown b { display: block; font-family: var(--garamond); font-weight: 500; font-size: 28px; line-height: 1; }
+.countdown span { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); }
+
+.calendar {
+  max-width: 300px; margin: 26px auto 0;
+  border: 1px solid var(--gold-soft);
+  border-radius: 12px;
+  background: rgba(255,250,243,.55);
+  overflow: hidden;
+}
+.calendar__head {
+  padding: 10px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+  border-bottom: 2px solid var(--gold-soft);
+}
+.calendar__grid { display: grid; grid-template-columns: repeat(7, 1fr); padding: 6px 8px 10px; }
+.calendar__grid .dow { font-size: 10px; color: var(--gold); padding: 6px 0; }
+.calendar__grid .d { position: relative; font-size: 12px; padding: 7px 0; }
+.calendar__grid .d.mark { color: #fff; font-weight: 700; }
+.calendar__grid .d.mark::before {
+  content: "";
+  position: absolute; left: 50%; top: 50%;
+  width: 30px; height: 28px;
+  transform: translate(-50%, -48%);
+  background: var(--maroon);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>") center/contain no-repeat;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>") center/contain no-repeat;
+  animation: calBeat 2.2s ease-in-out infinite;
+}
+.calendar__grid .d span { position: relative; z-index: 1; }
+@keyframes calBeat { 0%,100% { transform: translate(-50%,-48%) scale(1); } 15% { transform: translate(-50%,-48%) scale(1.12); } 30% { transform: translate(-50%,-48%) scale(1); } }
+
+.btn {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: var(--maroon);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 18px rgba(100,14,27,.28);
+  transition: transform .2s;
+}
+.btn:hover { transform: translateY(-2px); }
+
+/* ---------- Venue ---------- */
+.venue__name { font-family: "Times New Roman", serif; font-size: 19px; text-transform: uppercase; letter-spacing: 1px; }
+.venue__addr { color: var(--gold); font-family: "Roboto", sans-serif; font-size: 13px; line-height: 1.6; margin-top: 6px; }
+.map {
+  width: 100%; height: 220px; margin-top: 16px;
+  border: 1px solid var(--gold-soft); border-radius: 15px;
+}
+.link {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 12px;
+  color: var(--maroon); font-size: 14px; text-decoration: none;
+  border-bottom: 1px solid var(--gold-soft);
+}
+.link svg { width: 16px; fill: var(--gold); }
+
+/* ---------- Timeline ---------- */
+.timeline { list-style: none; position: relative; max-width: 360px; margin: 0 auto; }
+.timeline::before {
+  content: ""; position: absolute; top: 8px; bottom: 8px; left: 96px;
+  width: 1px; background: var(--gold-soft);
+}
+.timeline li {
+  display: grid; grid-template-columns: 86px 20px 1fr; gap: 0 10px;
+  align-items: start; text-align: left;
+  padding: 10px 0;
+}
+.timeline time { text-align: right; font-size: 15px; color: var(--gold); padding-top: 1px; }
+.timeline .dot {
+  position: relative; z-index: 1;
+  width: 11px; height: 11px; margin: 5px auto 0;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--maroon);
+}
+.timeline li.key .dot { background: var(--maroon); box-shadow: 0 0 0 4px rgba(100,14,27,.15); }
+.timeline .what { font-size: 14px; line-height: 1.45; }
+
+/* ---------- Closing ---------- */
+.closing { padding-bottom: 150px; }
+.closing p { font-size: 13.5px; line-height: 1.8; color: var(--gold); }
+.closing .closing__script {
+  font-family: "Alex Brush", cursive;
+  color: var(--maroon);
+  font-size: 30px;
+  line-height: 1.3;
+  margin-top: 18px;
+}
+
+/* ---------- Music button ---------- */
+.music-btn {
+  position: fixed; right: 18px; bottom: 18px; z-index: 100;
+  width: 48px; height: 48px; border-radius: 50%; border: none; cursor: pointer;
+  background: var(--maroon);
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+  display: grid; place-items: center;
+}
+.music-btn[hidden] { display: none; }
+.music-btn svg { width: 22px; fill: #fff; }
+.music-btn.playing { animation: spin 6s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(25,5,8,.92);
+  display: flex; align-items: center; justify-content: center;
+}
+.lightbox[hidden] { display: none; }
+.lightbox img { max-width: 92vw; max-height: 82vh; border-radius: 8px; box-shadow: 0 20px 50px rgba(0,0,0,.5); }
+.lightbox button {
+  position: absolute; border: none; background: rgba(255,255,255,.12); color: #fff;
+  width: 44px; height: 44px; border-radius: 50%; font-size: 26px; cursor: pointer;
+}
+.lightbox__close { top: 16px; right: 16px; font-size: 18px !important; }
+.lightbox__nav--prev { left: 12px; }
+.lightbox__nav--next { right: 12px; }
+.lightbox__count { position: absolute; bottom: 20px; color: #fff; font-size: 13px; letter-spacing: 1px; }
+
+/* ---------- Reveal on scroll ---------- */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s ease, transform .9s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}

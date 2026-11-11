@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shubhra & Henil — Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Lora:wght@400;500;600&family=The+Nautigal:wght@400;700&family=Alex+Brush&family=Libre+Baskerville:wght@400;700&family=EB+Garamond:wght@400;500&family=Cormorant+Garamond:wght@500;600&family=Roboto:wght@300;400&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="invitation.css" />
+</head>
+<body>
+  <main class="stage">
+    <section class="card" id="card">
+      <!-- Corner flowers: drawn by script.js. To use real photos instead, see README note in script.js -->
+      <div class="flowers flowers--tl" id="flowersTL"></div>
+      <div class="flowers flowers--br" id="flowersBR"></div>
+
+      <div class="card__content">
+        <div class="heart-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </div>
+
+        <h1 class="names">
+          <span class="names__one">Shubhra</span>
+          <span class="names__amp">&amp;</span>
+          <span class="names__two">Henil</span>
+        </h1>
+
+        <div class="divider" aria-hidden="true">
+          <span class="divider__line"></span>
+          <span class="divider__icon">❦</span>
+          <span class="divider__line"></span>
+        </div>
+
+        <p class="date">November 25, 2026</p>
+        <p class="greeting" id="greeting">Dear Family &amp; Friends</p>
+
+        <button class="open-btn" id="openBtn" type="button">
+          <span>Open</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ================= INSIDE OF THE CARD (shown after "Open") ================= -->
+  <div class="invite-wrap" id="inviteWrap" hidden>
+  <!-- Background music: put a file at assets/music.mp3 (button hides itself if missing) -->
+  <audio id="music" src="assets/music.mp3" loop preload="none"></audio>
+  <button class="music-btn" id="musicBtn" type="button" aria-label="Play music" hidden>
+    <svg viewBox="0 0 24 24"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
+  </button>
+
+  <main class="page" id="invite">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="flowers flowers--tr" id="heroFlowers"></div>
+
+      <div class="arch">
+        <svg class="arch__frame" viewBox="0 0 400 520" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M22,520 L22,215 C22,140 110,85 200,26 C290,85 378,140 378,215 L378,520" />
+          <path d="M34,520 L34,220 C34,152 118,100 200,42 C282,100 366,152 366,220 L366,520" class="thin" />
+        </svg>
+
+        <div class="arch__inner">
+          <p class="mantra">॥ श्री गणेशाय नमः ॥</p>
+          <div class="kalash" aria-hidden="true">
+            <svg viewBox="0 0 60 60"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+              <path d="M18 26 C10 34 12 50 30 52 C48 50 50 34 42 26 Z"/>
+              <path d="M20 26 H40 M24 22 H36 V26"/>
+              <path d="M30 22 C26 14 20 12 16 14 M30 22 C34 14 40 12 44 14 M30 22 V10"/>
+              <circle cx="30" cy="8" r="3"/>
+              <path d="M22 38 H38"/>
+            </g></svg>
+          </div>
+          <h1 class="hero__names">
+            <span>Shubhra</span>
+            <span class="amp">&amp;</span>
+            <span>Henil</span>
+          </h1>
+          <p class="hero__date">25 · 11 · 2026</p>
+        </div>
+      </div>
+
+      <svg class="palace" id="palace" viewBox="0 0 480 210" aria-hidden="true"></svg>
+    </section>
+
+    <!-- ============ CEREMONY INFO ============ -->
+    <section class="section reveal">
+      <h2 class="title">Ceremony Info</h2>
+      <div class="families">
+        <div class="family">
+          <span class="family__surname">Srivastava</span>
+          <span class="family__name">Mr. Krishna Ranjan Kumar</span>
+          <span class="family__name">Mrs. Nandini Srivastava</span>
+          <span class="family__place">Village Harila, District Bhojpur (Arrah), Bihar</span>
+        </div>
+        <span class="families__rule"></span>
+        <div class="family">
+          <span class="family__surname">Vyas</span>
+          <span class="family__name">Mr. Harshit Vyas</span>
+          <span class="family__name">Mrs. Preeti Vyas</span>
+          <span class="family__place">Banswara, Rajasthan</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INVITATION MESSAGE ============ -->
+    <section class="section reveal">
+      <p class="message">
+        <strong>Two hearts, two families,<br>one beautiful beginning</strong>
+        With the blessings of God and the love of our families, we joyfully invite you to celebrate the wedding of our beloved children
+      </p>
+
+      <div class="couple">
+        <div>
+          <h3 class="couple__name">Shubhra</h3>
+          <span class="couple__role">Bride</span>
+        </div>
+        <span class="couple__amp">&amp;</span>
+        <div>
+          <h3 class="couple__name">Henil</h3>
+          <span class="couple__role">Groom</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="ornament reveal" aria-hidden="true"><span></span><i>❖</i><span></span></div>
+
+    <!-- ============ EVENTS ============ -->
+    <section class="section events" id="events"></section>
+
+    <div class="ornament reveal" aria-hidden="true"><span></span><i>❖</i><span></span></div>
+
+    <!-- ============ GALLERY ============ -->
+    <section class="section reveal">
+      <h2 class="title">Photo Gallery</h2>
+      <div class="gallery" id="gallery">
+        <div class="gallery__stage" id="galleryStage"></div>
+        <button class="gallery__nav gallery__nav--prev" id="galPrev" aria-label="Previous photo">‹</button>
+        <button class="gallery__nav gallery__nav--next" id="galNext" aria-label="Next photo">›</button>
+      </div>
+      <p class="gallery__count" id="galCount">1 / 5</p>
+    </section>
+
+    <div class="ornament reveal" aria-hidden="true"><span></span><i>❖</i><span></span></div>
+
+    <!-- ============ WEDDING / COUNTDOWN ============ -->
+    <section class="section reveal">
+      <h2 class="title">Shubh Vivah (Wedding)</h2>
+      <p class="sub">The reception will take place at:</p>
+      <p class="big-time">7:00 PM</p>
+      <div class="dateline">
+        <span>Wednesday</span><span class="bar"></span><b>25</b><span class="bar"></span><span>November</span>
+      </div>
+      <p class="year">2026</p>
+
+      <h3 class="small-title">Countdown</h3>
+      <div class="countdown" id="countdown">
+        <div><b data-u="d">00</b><span>Days</span></div>
+        <div><b data-u="h">00</b><span>Hours</span></div>
+        <div><b data-u="m">00</b><span>Min</span></div>
+        <div><b data-u="s">00</b><span>Sec</span></div>
+      </div>
+
+      <div class="calendar">
+        <div class="calendar__head">November 2026</div>
+        <div class="calendar__grid" id="calendar"></div>
+      </div>
+
+      <a class="btn" id="calBtn" target="_blank" rel="noopener">Add to Calendar</a>
+    </section>
+
+    <!-- ============ VENUE ============ -->
+    <section class="section reveal">
+      <h3 class="venue__name">Shri Sai Kripa Vatika</h3>
+      <p class="venue__addr">Sharda Colony, near Dungarpur Link Road, Banswara, Rajasthan 327001<br>Near Nakshatra Mall</p>
+      <iframe class="map" loading="lazy" title="Venue map"
+        src="https://maps.google.com/maps?q=Shri%20Sai%20Kripa%20Vatika%2C%20Sharda%20Colony%2C%20Banswara%2C%20Rajasthan%20327001&z=15&output=embed"></iframe>
+      <a class="link" target="_blank" rel="noopener"
+         href="https://www.google.com/maps/dir/?api=1&destination=Shri%20Sai%20Kripa%20Vatika%20HC3G%2BC85%2C%20Sharda%20Colony%2C%20Shyampura%2C%20Banswara%2C%20Rajasthan%20327001">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+        Get directions
+      </a>
+    </section>
+
+    <div class="ornament reveal" aria-hidden="true"><span></span><i>❖</i><span></span></div>
+
+    <!-- ============ SCHEDULE ============ -->
+    <section class="section reveal">
+      <h2 class="title">Wedding Day Schedule</h2>
+      <ol class="timeline" id="timeline"></ol>
+    </section>
+
+    <!-- ============ CLOSING ============ -->
+    <section class="section closing reveal">
+      <p>Your presence will be the greatest blessing for Henil &amp; Shubhra. We would be so happy to have you with us as we celebrate their special day and share these beautiful moments together.</p>
+      <p class="closing__script">We can't wait to celebrate with you!</p>
+      <div class="flowers flowers--bl" id="footFlowers"></div>
+    </section>
+  </main>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox__close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Previous">‹</button>
+    <img id="lbImg" alt="" />
+    <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next">›</button>
+    <p class="lightbox__count" id="lbCount"></p>
+  </div>
+
+  </div>
+
+  <script src="flowers.js"></script>
+  <script src="invitation.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
